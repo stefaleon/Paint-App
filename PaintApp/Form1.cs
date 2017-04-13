@@ -20,7 +20,7 @@ namespace PaintApp
         {
             InitializeComponent();
             listOfPoints = new ArrayList();
-            pencilDown = false;
+            pencilDown = false;            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,7 +39,23 @@ namespace PaintApp
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             pencilDown = false;
-            this.statusStrip1.Items[0].Text = "MouseUp";
+            this.statusStrip1.Items[0].Text = "MouseUp";            
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            Point newPoint = new Point(e.X, e.Y);
+            Pen pencil = new Pen(Color.Blue);
+
+            if (pencilDown)
+            {
+                this.statusStrip1.Items[0].Text = "MouseMove";
+                g.DrawLine(pencil, (Point)listOfPoints[listOfPoints.Count - 1], newPoint);
+                listOfPoints.Add(newPoint);
+            }
+
+
         }
     }
 }

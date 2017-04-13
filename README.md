@@ -49,3 +49,24 @@
             this.statusStrip1.Items[0].Text = "MouseUp";
         }
 ```
+
+&nbsp;
+## 05 Add the *MouseMove* event
+* From the *Events* tab add the *MouseMove* event. Add an instance of the *Graphics* class.
+Add a new *Point* and a *Pen*. When the *MouseDown* and *MouseMove* events occur concurrently, that is when *pencilDown* is true while the mouse is moving, the *statusStrip* text is set to *MouseMove* and a line is drawn between consequent points.
+```
+    private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            Point newPoint = new Point(e.X, e.Y);
+            Pen pencil = new Pen(Color.Blue);
+
+            if (pencilDown)
+            {
+                this.statusStrip1.Items[0].Text = "MouseMove";
+                g.DrawLine(pencil, (Point)listOfPoints[listOfPoints.Count - 1], newPoint);
+                listOfPoints.Add(newPoint);
+            }
+
+        }
+```
