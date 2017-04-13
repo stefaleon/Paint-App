@@ -35,5 +35,11 @@ namespace PaintApp
             pencilDown = true;
             this.statusStrip1.Items[0].Text = "MouseDown";
         }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            pencilDown = false;
+            this.statusStrip1.Items[0].Text = "MouseUp";
+        }
     }
 }

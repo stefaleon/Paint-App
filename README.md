@@ -28,7 +28,7 @@
 
 &nbsp;
 ## 03 Add the *MouseDown* event
-* From the *Events* tab add the *MouseDown* event. Add a *Point*, add it to the *listOfPoints* and set the *pencilDown* values accordingly.
+* From the *Events* tab add the *MouseDown* event. Add a *Point*, add it to the *listOfPoints* and set the *pencilDown* and *statusStrip* values accordingly.
 ```
     private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -36,5 +36,16 @@
             listOfPoints.Add(aPoint);
             pencilDown = true;
             this.statusStrip1.Items[0].Text = "MouseDown";
+        }
+```
+
+&nbsp;
+## 04 Add the *MouseUp* event
+* From the *Events* tab add the *MouseUp* event. Set the *pencilDown* and *statusStrip* values accordingly.
+```
+    private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            pencilDown = false;
+            this.statusStrip1.Items[0].Text = "MouseUp";
         }
 ```
