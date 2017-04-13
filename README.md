@@ -24,3 +24,17 @@
             pencilDown = false;
         }
 ```
+
+
+&nbsp;
+## 03 Add the *MouseDown* event
+* From the *Events* tab add the *MouseDown* event. Add a *Point*, add it to the *listOfPoints* and set the *pencilDown* values accordingly.
+```
+    private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point aPoint = new Point(e.X, e.Y);
+            listOfPoints.Add(aPoint);
+            pencilDown = true;
+            this.statusStrip1.Items[0].Text = "MouseDown";
+        }
+```

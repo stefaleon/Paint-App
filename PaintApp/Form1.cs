@@ -27,5 +27,13 @@ namespace PaintApp
         {
 
         }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point aPoint = new Point(e.X, e.Y);
+            listOfPoints.Add(aPoint);
+            pencilDown = true;
+            this.statusStrip1.Items[0].Text = "MouseDown";
+        }
     }
 }
